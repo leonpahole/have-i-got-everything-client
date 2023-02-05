@@ -1,6 +1,6 @@
 <script lang="ts">
-  import ActiveListsList from "../components/ActiveListsList.svelte";
-  import TemplateList from "../components/TemplateList.svelte";
+  import ActiveListsList from "../components/activeLists/ActiveListsList.svelte";
+  import TemplateList from "../components/templates/TemplateList.svelte";
 </script>
 
 <div class="heading-wrapper">

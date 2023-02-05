@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { TemplateModels } from "../models/template.models";
   import { Link, useNavigate } from "svelte-navigator";
-  import { ActiveListService } from "../services/active-list.service";
-  import { TemplateService } from "../services/template.service";
+  import { ActiveListService } from "../../util/activeLists/active-list.service";
+  import type { TemplateModels } from "../../util/templates/template.models";
+  import { TemplateService } from "../../util/templates/template.service";
 
   export let template: TemplateModels.Template;
 

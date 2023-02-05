@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { TemplateModels } from "../models/template.models";
-  import { ActiveListService } from "../services/active-list.service";
+  import type { ActiveListModels } from "../../util/activeLists/active-list.models";
+  import { ActiveListService } from "../../util/activeLists/active-list.service";
 
-  export let activeList: TemplateModels.ActiveList;
+  export let activeList: ActiveListModels.ActiveList;
 
   async function onItemCheck(e: Event, itemId: number) {
     const checked = (e.target as HTMLInputElement).checked;

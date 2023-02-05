@@ -1,5 +1,6 @@
 <script lang="ts">
   import Navbar from "./Navbar.svelte";
+
   export let showNavbar: boolean = true;
 </script>
 
