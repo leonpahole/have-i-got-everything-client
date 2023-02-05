@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
-  import type { SharedModels } from "../../util/shared/shared.models";
-  import AppInput from "../shared/AppInput.svelte";
-  import ListInput from "../shared/ListInput.svelte";
+  import { createEventDispatcher } from 'svelte';
+  import type { SharedModels } from '../../util/shared/shared.models';
+  import AppInput from '../shared/AppInput.svelte';
+  import ListInput from '../shared/ListInput.svelte';
 
-  export let mode: "create" | "edit" = "create";
-  export let name: string = "";
+  export let mode: 'create' | 'edit' = 'create';
+  export let name: string = '';
   export let items: SharedModels.ListInputItem[] = [];
 
   $: isValid = name.trim().length > 0 && items.length > 0;
@@ -17,18 +17,18 @@
       return;
     }
 
-    dispatch("submit");
+    dispatch('submit');
   }
 
   const textMap: Record<typeof mode, { heading: string; button: string }> = {
     create: {
-      heading: "Create a template",
-      button: "Create",
+      heading: 'Create a template',
+      button: 'Create'
     },
     edit: {
-      heading: "Edit a template",
-      button: "Edit",
-    },
+      heading: 'Edit a template',
+      button: 'Edit'
+    }
   };
 </script>
 

@@ -1,14 +1,14 @@
 <script>
-  import { Link, useNavigate } from "svelte-navigator";
-  import { loggedInUser } from "../store";
-  import { AuthService } from "../util/auth/auth.service";
+  import { Link, useNavigate } from 'svelte-navigator';
+  import { loggedInUser } from '../store';
+  import { AuthService } from '../util/auth/auth.service';
 
   const navigate = useNavigate();
 
   async function login() {
     const success = await AuthService.login();
     if (success) {
-      navigate("/");
+      navigate('/');
     }
   }
 </script>

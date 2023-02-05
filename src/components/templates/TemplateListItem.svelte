@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Link } from "svelte-navigator";
+  import { Link } from 'svelte-navigator';
 
   export let name: string;
   export let link: string;

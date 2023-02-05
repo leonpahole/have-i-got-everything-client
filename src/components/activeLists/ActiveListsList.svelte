@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { ActiveListService } from "../../util/activeLists/active-list.service";
-  import TemplateListItem from "../templates/TemplateListItem.svelte";
+  import { ActiveListService } from '../../util/activeLists/active-list.service';
+  import TemplateListItem from '../templates/TemplateListItem.svelte';
 
   const activeListsPromise = ActiveListService.listActiveLists();
 </script>

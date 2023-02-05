@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { ActiveListModels } from "../../util/activeLists/active-list.models";
-  import { ActiveListService } from "../../util/activeLists/active-list.service";
+  import type { ActiveListModels } from '../../util/activeLists/active-list.models';
+  import { ActiveListService } from '../../util/activeLists/active-list.service';
 
   export let activeList: ActiveListModels.ActiveList;
 
@@ -23,7 +23,7 @@
         <input
           type="checkbox"
           checked={item.checked}
-          on:change={(e) => {
+          on:change={e => {
             onItemCheck(e, item.id);
           }}
         />

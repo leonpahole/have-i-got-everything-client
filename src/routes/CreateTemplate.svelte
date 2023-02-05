@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { useNavigate } from "svelte-navigator";
-  import TemplateEditor from "../components/templates/TemplateEditor.svelte";
-  import type { SharedModels } from "../util/shared/shared.models";
-  import { TemplateService } from "../util/templates/template.service";
+  import { useNavigate } from 'svelte-navigator';
+  import TemplateEditor from '../components/templates/TemplateEditor.svelte';
+  import type { SharedModels } from '../util/shared/shared.models';
+  import { TemplateService } from '../util/templates/template.service';
 
   const navigate = useNavigate();
 
-  let name: string = "";
+  let name: string = '';
   let items: SharedModels.ListInputItem[] = [];
 
   async function handleCreate() {

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { TemplateService } from "../util/templates/template.service";
-  import Template from "../components/templates/Template.svelte";
+  import { TemplateService } from '../util/templates/template.service';
+  import Template from '../components/templates/Template.svelte';
 
   export let id: string;
   const templatePromise = TemplateService.getTemplateDetail(Number(id));

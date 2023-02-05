@@ -1,17 +1,17 @@
 <script lang="ts">
-  import type { SharedModels } from "../../util/shared/shared.models";
-  import AppInput from "./AppInput.svelte";
+  import type { SharedModels } from '../../util/shared/shared.models';
+  import AppInput from './AppInput.svelte';
 
   export let values: SharedModels.ListInputItem[] = [];
 
-  let newValue: string = "";
+  let newValue: string = '';
   function onAdd() {
     values = [...values, { name: newValue }];
-    newValue = "";
+    newValue = '';
   }
 
   function onRemove(value: SharedModels.ListInputItem) {
-    values = values.filter((v) => v !== value);
+    values = values.filter(v => v !== value);
   }
 </script>
 

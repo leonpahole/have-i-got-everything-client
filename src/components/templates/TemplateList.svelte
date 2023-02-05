@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { Link } from "svelte-navigator";
-  import { TemplateService } from "../../util/templates/template.service";
-  import TemplateListItem from "./TemplateListItem.svelte";
+  import { Link } from 'svelte-navigator';
+  import { TemplateService } from '../../util/templates/template.service';
+  import TemplateListItem from './TemplateListItem.svelte';
 
   const templatesPromise = TemplateService.listTemplates();
 </script>
