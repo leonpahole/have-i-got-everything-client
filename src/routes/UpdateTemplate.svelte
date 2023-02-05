@@ -1,9 +1,9 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { useNavigate } from "svelte-navigator";
-  import TemplateEditor from "../components/TemplateEditor.svelte";
-  import type { TemplateModels } from "../models/template.models";
-  import { TemplateService } from "../services/template.service";
+  import TemplateEditor from "../components/templates/TemplateEditor.svelte";
+  import type { TemplateModels } from "../util/templates/template.models";
+  import { TemplateService } from "../util/templates/template.service";
 
   const navigate = useNavigate();
 

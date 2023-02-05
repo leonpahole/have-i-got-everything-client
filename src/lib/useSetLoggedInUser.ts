@@ -1,9 +1,9 @@
 import { onMount } from "svelte";
-import auth from "./auth";
 import { loggedInUser } from "../store";
+import { AuthService } from "../util/auth/auth.service";
 
 export function useSetLoggedInUser() {
   onMount(async () => {
-    loggedInUser.set(await auth.getUser());
+    loggedInUser.set(await AuthService.getUser());
   });
 }

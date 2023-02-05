@@ -1,12 +1,12 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
-  import AppInput from "../components/AppInput.svelte";
-  import ListInput from "../components/ListInput.svelte";
-  import type { ListInputModels } from "../models/list-input.models";
+  import type { SharedModels } from "../../util/shared/shared.models";
+  import AppInput from "../shared/AppInput.svelte";
+  import ListInput from "../shared/ListInput.svelte";
 
   export let mode: "create" | "edit" = "create";
   export let name: string = "";
-  export let items: ListInputModels.Item[] = [];
+  export let items: SharedModels.ListInputItem[] = [];
 
   $: isValid = name.trim().length > 0 && items.length > 0;
 

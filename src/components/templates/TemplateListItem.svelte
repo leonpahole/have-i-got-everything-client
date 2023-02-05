@@ -1,5 +1,4 @@
 <script lang="ts">
-  import type { TemplateModels } from "../models/template.models";
   import { Link } from "svelte-navigator";
 
   export let name: string;

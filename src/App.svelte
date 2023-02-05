@@ -4,13 +4,14 @@
 
   import { loggedInUser } from "./store";
   import { Router, Route } from "svelte-navigator";
-  import { useSetLoggedInUser } from "./util/useSetLoggedInUser";
-  import PrivateRoute from "./components/PrivateRoute.svelte";
-  import PageLayout from "./components/PageLayout.svelte";
+  import PageLayout from "./components/layout/PageLayout.svelte";
   import CreateTemplate from "./routes/CreateTemplate.svelte";
   import TemplateView from "./routes/TemplateView.svelte";
   import UpdateTemplate from "./routes/UpdateTemplate.svelte";
   import ActiveListView from "./routes/ActiveListView.svelte";
+  import PrivateRoute from "./components/auth/PrivateRoute.svelte";
+
+  import { useSetLoggedInUser } from "./lib/useSetLoggedInUser";
 
   useSetLoggedInUser();
 </script>

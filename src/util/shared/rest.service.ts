@@ -1,10 +1,10 @@
 import axios from "axios";
-import { AppConfig } from "../appConfig";
-import auth from "./auth";
+import { AppConfig } from "../../appConfig";
+import { AuthService } from "../auth/auth.service";
 
 axios.defaults.baseURL = AppConfig.apiUrl;
 
-export namespace Rest {
+export namespace RestService {
   export const get = async <T>(path: string): Promise<T> => {
     const { data } = await axios.get<T>(path, { headers: await getHeaders() });
     return data;
@@ -39,7 +39,7 @@ export namespace Rest {
   };
 
   const getHeaders = async () => {
-    const token = await auth.getToken();
+    const token = await AuthService.getToken();
     let headers = {};
     if (token) {
       headers = { ...headers, Authorization: `Bearer ${token}` };

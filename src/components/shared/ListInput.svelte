@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { ListInputModels } from "../models/list-input.models";
+  import type { SharedModels } from "../../util/shared/shared.models";
   import AppInput from "./AppInput.svelte";
 
-  export let values: ListInputModels.Item[] = [];
+  export let values: SharedModels.ListInputItem[] = [];
 
   let newValue: string = "";
   function onAdd() {
@@ -10,7 +10,7 @@
     newValue = "";
   }
 
-  function onRemove(value: ListInputModels.Item) {
+  function onRemove(value: SharedModels.ListInputItem) {
     values = values.filter((v) => v !== value);
   }
 </script>

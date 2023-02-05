@@ -1,9 +1,9 @@
 <script>
   import { Link } from "svelte-navigator";
-  import auth from "../util/auth";
+  import { AuthService } from "../../util/auth/auth.service";
 
   async function logout() {
-    await auth.logout();
+    await AuthService.logout();
   }
 </script>
 

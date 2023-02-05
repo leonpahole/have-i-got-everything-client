@@ -1,23 +1,23 @@
-import type { TemplateModels } from "../models/template.models";
-import { Rest } from "../util/rest";
+import { RestService } from "../shared/rest.service";
+import type { ActiveListModels } from "./active-list.models";
 
 export namespace ActiveListService {
   export const listActiveLists = async (): Promise<
-    TemplateModels.ActiveList[]
+    ActiveListModels.ActiveList[]
   > => {
-    return Rest.get<TemplateModels.ActiveList[]>(`/lists/`);
+    return RestService.get<ActiveListModels.ActiveList[]>(`/lists/`);
   };
 
   export const getActiveListDetail = async (
     id: number
-  ): Promise<TemplateModels.ActiveList> => {
-    return await Rest.get<TemplateModels.ActiveList>(`/lists/${id}`);
+  ): Promise<ActiveListModels.ActiveList> => {
+    return await RestService.get<ActiveListModels.ActiveList>(`/lists/${id}`);
   };
 
   export const createFromTemplate = async (
     templateId: number
   ): Promise<{ id: number }> => {
-    return await Rest.post<{ id: number }>(
+    return await RestService.post<{ id: number }>(
       `/lists/create_from_template/${templateId}/`,
       {}
     );
@@ -28,7 +28,7 @@ export namespace ActiveListService {
     itemId: number,
     checked: boolean
   ): Promise<{ id: number }> => {
-    return await Rest.patch<TemplateModels.ActiveList>(
+    return await RestService.patch<ActiveListModels.ActiveList>(
       `lists/${listId}/list_items/${itemId}/`,
       {
         checked,
@@ -39,8 +39,11 @@ export namespace ActiveListService {
   export const finalizeActiveList = async (
     id: number
   ): Promise<{ id: number }> => {
-    return await Rest.patch<TemplateModels.ActiveList>(`/lists/${id}/`, {
-      is_active: false,
-    });
+    return await RestService.patch<ActiveListModels.ActiveList>(
+      `/lists/${id}/`,
+      {
+        is_active: false,
+      }
+    );
   };
 }

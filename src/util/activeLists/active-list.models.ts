@@ -1,10 +1,4 @@
-export namespace TemplateModels {
-  export interface Template {
-    id: number;
-    name: string;
-    items: { name: string }[];
-  }
-
+export namespace ActiveListModels {
   export interface ActiveList {
     id: number;
     name: string;
