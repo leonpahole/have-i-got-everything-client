@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "format": "prettier --write '{public,src}/**/*.{css,html,js,svelte}'",
-    "lint": "eslint --fix --quiet src --ext .js,.ts,.svelte"
+    "lint": "eslint --fix --quiet src --ext .js,.ts,.svelte",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.0.0",
@@ -22,6 +23,8 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-svelte3": "^4.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
     "prettier": "^2.8.3",
     "prettier-plugin-svelte": "^2.9.0",
     "sass": "^1.58.0",
@@ -36,5 +39,11 @@
     "@auth0/auth0-spa-js": "^2.0.2",
     "axios": "^1.2.6",
     "svelte-navigator": "^3.2.2"
+  },
+  "lint-staged": {
+    "*.{js,ts,svelte,css,scss,postcss,md,json}": [
+      "prettier --write "
+    ],
+    "*.{js,ts,svelte}": "eslint"
   }
 }
