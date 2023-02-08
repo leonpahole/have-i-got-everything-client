@@ -3,18 +3,8 @@
   import TemplateList from '../components/templates/TemplateList.svelte';
 </script>
 
-<div class="heading-wrapper">
-  <h1 class="heading">Dashboard</h1>
-</div>
-
 <TemplateList />
 
-<hr class="separator" />
+<div class="bg-gray-700 text-gray-700 my-8 h-px w-full" />
 
 <ActiveListsList />
-
-<style>
-  .separator {
-    margin: 16px 0;
-  }
-</style>

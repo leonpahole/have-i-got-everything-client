@@ -7,12 +7,35 @@
   const navigate = useNavigate();
 
   let name: string = '';
+  let description: string = '';
   let items: SharedModels.ListInputItem[] = [];
 
+  let isSubmitting: boolean = false;
+  let error: string | null = null;
+
   async function handleCreate() {
-    const template = await TemplateService.createTemplate(name, items);
-    navigate(`/template/${template.id}`);
+    try {
+      isSubmitting = true;
+      error = null;
+      const template = await TemplateService.createTemplate(
+        name,
+        description,
+        items
+      );
+      navigate(`/template/${template.id}`);
+    } catch (e) {
+      error = e?.message || 'Unknown error';
+    } finally {
+      isSubmitting = false;
+    }
   }
 </script>
 
-<TemplateEditor bind:name bind:items on:submit={handleCreate} />
+<TemplateEditor
+  bind:name
+  bind:description
+  bind:items
+  on:submit={handleCreate}
+  {isSubmitting}
+  {error}
+/>

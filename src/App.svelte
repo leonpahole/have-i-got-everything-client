@@ -20,7 +20,7 @@
   <Router>
     <div>
       <Route path="/about">
-        <PageLayout showNavbar={false}>
+        <PageLayout showNavbar={false} dontLimitWidth>
           <LandingPage />
         </PageLayout>
       </Route>

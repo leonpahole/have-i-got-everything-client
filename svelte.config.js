@@ -5,5 +5,11 @@ const { scss } = pkg;
 export default {
   // Consult https://svelte.dev/docs#compile-time-svelte-preprocess
   // for more information about preprocessors
-  preprocess: [vitePreprocess(), scss()]
+  preprocess: [
+    vitePreprocess(),
+    scss(),
+    pkg({
+      postcss: true
+    })
+  ]
 };
