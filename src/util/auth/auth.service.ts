@@ -74,10 +74,16 @@ export namespace AuthService {
     }
   }
 
-  export async function logout(options?: LogoutOptions) {
+  export async function logout(options: LogoutOptions = {}) {
     try {
       const client = await createClient();
-      await client.logout(options);
+      await client.logout({
+        ...options,
+        logoutParams: {
+          returnTo: window.location.origin,
+          ...options?.logoutParams
+        }
+      });
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error(e);
