@@ -68,21 +68,3 @@
     </li>
   </ul>
 </fieldset>
-
-<style>
-  .items-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .items-list-item {
-    margin-top: 0.8rem;
-  }
-
-  .button-wrapper {
-    display: flex;
-    gap: 8px;
-    align-items: flex-end;
-  }
-</style>

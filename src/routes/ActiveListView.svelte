@@ -1,23 +1,27 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import ActiveList from '../components/activeLists/ActiveList.svelte';
+  import AppCenteredSpinner from '../components/shared/AppCenteredSpinner.svelte';
+  import AppErrorMessage from '../components/shared/AppErrorMessage.svelte';
   import { ActiveListService } from '../util/activeLists/active-list.service';
 
   export let id: string;
-  const activeListPromise = ActiveListService.getActiveListDetail(Number(id));
+  let activeListPromise;
+  function tryFetching() {
+    activeListPromise = ActiveListService.getActiveListDetail(Number(id));
+  }
+
+  onMount(() => {
+    tryFetching();
+  });
 </script>
 
 {#await activeListPromise}
-  <p>...waiting</p>
+  <AppCenteredSpinner />
 {:then activeList}
   <div class="wrapper">
     <ActiveList {activeList} />
   </div>
 {:catch error}
-  <p class="error">{error.message}</p>
+  <AppErrorMessage message={error.message} on:tryagain={tryFetching} />
 {/await}
-
-<style>
-  .error {
-    color: red;
-  }
-</style>

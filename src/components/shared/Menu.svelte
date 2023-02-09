@@ -51,17 +51,3 @@
     <slot name="content" />
   </div>
 {/if}
-
-<style lang="scss">
-  @use '../../styles/variables.scss';
-
-  .btn {
-    border: none;
-    cursor: pointer;
-    background-color: transparent;
-  }
-
-  .content {
-    background-color: transparent;
-  }
-</style>
