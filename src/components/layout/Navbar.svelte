@@ -15,7 +15,7 @@
   import { AuthService } from '../../util/auth/auth.service';
 
   function logout() {
-    AuthService.login();
+    AuthService.logout();
   }
 </script>
 
