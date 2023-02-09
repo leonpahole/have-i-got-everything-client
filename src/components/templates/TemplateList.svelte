@@ -19,7 +19,7 @@
             name: 'Edit',
             icon: Pencil,
             btnColor: 'alternative',
-            href: `/template/${t.id}/edit`
+            href: `/template/${t.id}/update`
           }
         ]
       })
