@@ -1,6 +1,6 @@
 <script lang="ts">
-  import ActiveList from "../components/activeLists/ActiveList.svelte";
-  import { ActiveListService } from "../util/activeLists/active-list.service";
+  import ActiveList from '../components/activeLists/ActiveList.svelte';
+  import { ActiveListService } from '../util/activeLists/active-list.service';
 
   export let id: string;
   const activeListPromise = ActiveListService.getActiveListDetail(Number(id));

@@ -1,12 +1,12 @@
 <script>
-  import { useNavigate } from "svelte-navigator";
-  import { loggedInUser } from "../../store";
+  import { useNavigate } from 'svelte-navigator';
+  import { loggedInUser } from '../../store';
 
   const navigate = useNavigate();
 
   $: if ($loggedInUser === null) {
-    navigate("/about", {
-      replace: true,
+    navigate('/about', {
+      replace: true
     });
   }
 </script>

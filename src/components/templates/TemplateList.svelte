@@ -1,47 +1,39 @@
 <script lang="ts">
-  import { Link } from "svelte-navigator";
-  import { TemplateService } from "../../util/templates/template.service";
-  import TemplateListItem from "./TemplateListItem.svelte";
+  import { ArrowRight, Pencil } from 'svelte-heros-v2';
+  import { TemplateService } from '../../util/templates/template.service';
+  import ItemList, { type ItemListItemData } from '../shared/ItemList.svelte';
 
-  const templatesPromise = TemplateService.listTemplates();
+  const fetchItems = async (): Promise<ItemListItemData[]> => {
+    const templates = await TemplateService.listTemplates();
+    return templates.map(
+      (t): ItemListItemData => ({
+        name: t.name,
+        description: t.description,
+        links: [
+          {
+            name: 'View details',
+            icon: ArrowRight,
+            href: `/template/${t.id}`
+          },
+          {
+            name: 'Edit',
+            icon: Pencil,
+            btnColor: 'alternative',
+            href: `/template/${t.id}/edit`
+          }
+        ]
+      })
+    );
+  };
 </script>
 
-<h2>Templates</h2>
-
-<div>
-  <Link to="/create-template">Create a new template</Link>
-</div>
-
-{#await templatesPromise}
-  <p>...waiting</p>
-{:then templates}
-  <div class="wrapper">
-    {#each templates as template}
-      <TemplateListItem name={template.name} link={`template/${template.id}`} />
-    {/each}
-  </div>
-{:catch error}
-  <p class="error">{error.message}</p>
-{/await}
-
-<style>
-  .heading-wrapper {
-    text-align: start;
-    margin-bottom: 1rem;
-  }
-
-  .heading {
-    font-size: 2rem;
-  }
-
-  .wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-auto-rows: 1fr;
-    gap: 1rem;
-  }
-
-  .error {
-    color: red;
-  }
-</style>
+<ItemList
+  data={{
+    heading: 'Templates',
+    headingLink: {
+      name: 'Create a new template',
+      href: '/create-template'
+    },
+    fetchItems
+  }}
+/>

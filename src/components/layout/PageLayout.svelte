@@ -1,14 +1,20 @@
 <script lang="ts">
-  import Navbar from "./Navbar.svelte";
+  import Navbar from './Navbar.svelte';
 
   export let showNavbar: boolean = true;
+  export let dontLimitWidth: boolean = false;
 </script>
 
-<div>
+<div class="bg-gray-900 text-white min-h-screen">
   {#if showNavbar}
     <Navbar />
   {/if}
-  <main class="main">
+  <main
+    class="mx-auto"
+    class:px-6={!dontLimitWidth}
+    class:py-7={!dontLimitWidth}
+    class:max-w-6xl={!dontLimitWidth}
+  >
     <slot />
   </main>
 </div>
@@ -16,8 +22,10 @@
 <style>
   .main {
     max-width: 1280px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
     padding: 2rem;
-    padding-top: 0;
   }
 </style>

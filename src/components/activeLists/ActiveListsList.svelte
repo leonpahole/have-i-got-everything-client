@@ -1,33 +1,29 @@
 <script lang="ts">
-  import { ActiveListService } from "../../util/activeLists/active-list.service";
-  import TemplateListItem from "../templates/TemplateListItem.svelte";
+  import { ArrowRight, Pencil } from 'svelte-heros-v2';
+  import { ActiveListService } from '../../util/activeLists/active-list.service';
+  import ItemList, { type ItemListItemData } from '../shared/ItemList.svelte';
 
-  const activeListsPromise = ActiveListService.listActiveLists();
+  const fetchItems = async (): Promise<ItemListItemData[]> => {
+    const activeLists = await ActiveListService.listActiveLists();
+    return activeLists.map(
+      (a): ItemListItemData => ({
+        name: a.name,
+        links: [
+          {
+            name: 'View details',
+            icon: ArrowRight,
+            href: `/list/${a.id}`
+          }
+        ]
+      })
+    );
+  };
 </script>
 
-<h2>Active lists</h2>
-
-{#await activeListsPromise}
-  <p>...waiting</p>
-{:then lists}
-  <div class="wrapper">
-    {#each lists as list (list.id)}
-      <TemplateListItem name={list.name} link={`list/${list.id}`} />
-    {/each}
-  </div>
-{:catch error}
-  <p class="error">{error.message}</p>
-{/await}
-
-<style>
-  .wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-auto-rows: 1fr;
-    gap: 1rem;
-  }
-
-  .error {
-    color: red;
-  }
-</style>
+<ItemList
+  data={{
+    heading: 'Active lists',
+    headingLink: null,
+    fetchItems
+  }}
+/>
