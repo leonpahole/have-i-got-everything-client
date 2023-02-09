@@ -6,7 +6,7 @@
   export let data: ItemListItemData;
 </script>
 
-<div class="card-wrapper">
+<div class="card-wrapper h-full">
   <Card>
     <h5 class="mb-2 text-2xl font-bold tracking-tight  text-white">
       {data.name}

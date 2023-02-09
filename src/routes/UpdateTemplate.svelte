@@ -24,8 +24,8 @@
       error = null;
       await TemplateService.updateTemplate(
         template.id,
-        template.description,
         template.name,
+        template.description,
         template.items
       );
       navigate(`/template/${template.id}`);

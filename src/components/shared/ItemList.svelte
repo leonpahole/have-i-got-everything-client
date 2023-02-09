@@ -58,7 +58,7 @@
         <p class="text-gray-400">No items at the moment.</p>
       </div>
     {:else}
-      <div class="grid items-center grid-cols-fluid gap-5 auto-rows-1fr-full ">
+      <div class="grid items-center gap-5 auto-rows-1fr-full list-wrapper">
         {#each items as item}
           <ItemListItem data={item} />
         {/each}
@@ -68,3 +68,9 @@
     <AppErrorMessage message={error.message} on:tryagain={tryFetchingItems} />
   {/await}
 {/if}
+
+<style>
+  .list-wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+</style>
