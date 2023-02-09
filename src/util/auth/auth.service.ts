@@ -21,7 +21,9 @@ async function createClient() {
       clientId,
       authorizationParams: {
         audience
-      }
+      },
+      useRefreshTokens: true,
+      cacheLocation: 'localstorage'
     });
   }
 
