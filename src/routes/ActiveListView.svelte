@@ -16,12 +16,14 @@
   });
 </script>
 
-{#await activeListPromise}
-  <AppCenteredSpinner />
-{:then activeList}
-  <div class="wrapper">
-    <ActiveList {activeList} />
-  </div>
-{:catch error}
-  <AppErrorMessage message={error.message} on:tryagain={tryFetching} />
-{/await}
+{#if activeListPromise}
+  {#await activeListPromise}
+    <AppCenteredSpinner />
+  {:then activeList}
+    <div class="wrapper">
+      <ActiveList {activeList} />
+    </div>
+  {:catch error}
+    <AppErrorMessage message={error.message} on:tryagain={tryFetching} />
+  {/await}
+{/if}
